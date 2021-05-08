@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "01: Bootstrap Kubernetes cluster with underlying PV as NFS"
+title:  Bootstrap Kubernetes cluster with PV as NFS
 excerpt:
   "In this post we will cover how to Bootstrap Kubernetes cluster using Kubeadm with underlying
   persistent volume as NFS"
@@ -11,83 +11,33 @@ categories:
 tags:
   - Kubernetes
 ---
-**Setup was done as below:**
+**Create three ec2 instance**
 
-1) Create three ec2 instance \
 Master node : centos \
 Worker node: centos \
 NFS server : ubuntu
 
-**Steps to create NFS Server**
+**Steps to create NFS Server on ubuntu instance**
 
-a) Login to ubuntu server (Created on ec2 instance in step 1c) \
-b) `$ sudo su ` \
-c) `$ apt install nfs-kernel-server nfs-common portmap` \
-d) `$ systemctl start nfs-server ` \
-e) `$ cd /srv/`  \
-f) `$ chmod -R 777 nfs` \
-g) `vi /etc/exports 
-       /srv/nfs/mydata *(rw,sync,no_subtree_check,no_root_squash,insecure)` \
+<script src="https://gist.github.com/techslaves/70de4a76c0d72bf006c7d0572a081d1f.js"></script>
 
 ![](/images/kubernetes/post01/NFS1.JPG)
 
-h) `exportfs -rv ` \
-i) `showmount -e` \
-
 ![](/images/kubernetes/post01/NFS2.JPG)
 
-j) `systemctl restart nfs-server` \
-k) Make sure you have below inbound rules for NFS client to ping to NFS server and mount directory on client-server
+Make sure you have below inbound rules for NFS client to ping to NFS server and mount directory on client-server
 
 ![](/images/kubernetes/post01/NFS3.JPG)
 
-**Setup Master node (control plane)**
+**Setup Master node (control plane) - Install Docker and Kubernetes (kubeadm, kubectl, kubelet)**
 
-1) Install docker
-
-   `sudo yum install -y yum-utils
-    sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo 
-    sudo yum install docker-ce docker-ce-cli containerd.io 
-    sudo systemctl start docker 
-    sudo docker --version 1` \
-
-2) Setup Kubernetes
-
-Installing kubeadm, kubelet and kubectl
-
-`
-cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
-[kubernetes]
-name=Kubernetes
-baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
-enabled=1
-gpgcheck=1
-repo_gpgcheck=1
-gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-exclude=kubelet kubeadm kubectl
-EOF`
-
-3) # Set SELinux in permissive mode (effectively disabling it)
-`$sudo setenforce 0`
-
-4) `sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config`
-
-5) `sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes`
-
-6) `sudo systemctl enable --now kubelet`
-
-7) `sudo systemctl start docker.service`
-
-8) `sudo systemctl enable docker.service`
-
-9) Initialize cluster networking:
-kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/master/daemonset/kubeadm-kuberouter.yaml
+<script src="https://gist.github.com/techslaves/b5830e4a9155e3f85fb199ebb5774329.js"></script>
 
 ![](/images/kubernetes/post01/NFS4.JPG)
 
 ![](/images/kubernetes/post01/NFS5.JPG)
 
-10) Add below Inbound rules with masternode of kubernetes cluster
+Add below Inbound rules with masternode of kubernetes cluster
 
 ![](/images/kubernetes/post01/NFS6.JPG)
 
@@ -115,49 +65,29 @@ Install Docker, kubeadm, kubelet and kubectl as done in above steps for master n
 
 ![](/images/kubernetes/post01/NFS10.JPG)
 
-### Contents of yaml can be found at [TechSlaves Repo: deployment-pv-nfs](https://github.com/techslaves/kubernetes/tree/main/deployment-pv-nfs)
-
-### Create PV, PVC and POD's to Use NFS server as underlying storage:
+***Create PV, PVC and POD's to Use NFS server as underlying storage:***
 
 1) Login back to master node 
 
-2) Run $kubectl get nodes (this should list one master and worker node as Ready) 
+2) Run
+$kubectl get nodes (this should list one master and worker node as Ready) 
 
-3) Create storageclass.yaml, pv.yaml, pvc.yaml, deployment.yaml 
-
-### Create default storageclass.yaml 
-
-[centos@ip-XX-XX-XX-XX~]$ cat storageclass.yaml 
-![](/images/kubernetes/post01/nfs-storageclass-yaml.PNG)
+*Create default nfs-storageclass.yaml* 
+<script src="https://gist.github.com/techslaves/44c423d5d887c1941df3ab23cbd37d3f.js"></script>
 
 
-### Create pv.yaml file with below contents
-
-[centos@ip-XX-XX-XX-XX ~]$ cat pv.yaml
-![](/images/kubernetes/post01/nfs-pv-yaml.PNG)
+***Create nfs-pv.yaml file with below contents***
+<script src="https://gist.github.com/techslaves/3bf0f8f6728cd46db7c9dead33bf5168.js"></script>
 
 
-### Create pvc.yaml
-[centos@ip-XX-XX-XX-XX ~]$ cat pvc.yaml
-![](/images/kubernetes/post01/nfs-pvc-yaml.PNG)
+***Create pvc.yaml***
+<script src="https://gist.github.com/techslaves/30229b3dfc3777d66cfdb3543215c06c.js"></script>
 
+***Create nfs-deployment.yaml***
+<script src="https://gist.github.com/techslaves/d1999bb64a02e767fb1f16c673e4af33.js"></script>
 
-### Create deployment.yaml
-[centos@ip-XX-XX-XX-XX ~]$ cat nfs-deployment.yaml
-![](/images/kubernetes/post01/nfs-deployment-yaml.PNG)
+<script src="https://gist.github.com/techslaves/0a86d2c1479ce24bfa9158bf2499afef.js"></script>
 
-4) `$ kubectl apply -f storageclass.yaml`
+Any file created on location /usr/share/nginx/html will be backed up on NFS server location /srv/nfs/mydata
 
-5) `$ kubectl apply -f pvc.yaml`
-
-6) `$ kubectl apply -f pv.yaml`
-
-7) `$ kubectl apply -f deployment.yaml`
-
-8) `$ kubectl get pods` : find the pod name and exec into it
-
-9) `$ kubectl exec -it <pod-name> -- /bin/bash`
-
-10) `$ cd /usr/share/nginx/html`
-
-11) `$ touch index.html` - Any file created on location /usr/share/nginx/html will be backed up on NFS server location /srv/nfs/mydata
+### Contents of yaml can be found at [TechSlaves Repo: deployment-pv-nfs](https://github.com/techslaves/kubernetes/tree/main/deployment-pv-nfs)
