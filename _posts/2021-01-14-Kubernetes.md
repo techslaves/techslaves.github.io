@@ -90,4 +90,5 @@ $kubectl get nodes (this should list one master and worker node as Ready)
 
 Any file created on location /usr/share/nginx/html will be backed up on NFS server location /srv/nfs/mydata
 
-### Contents of yaml can be found at [TechSlaves Repo: deployment-pv-nfs](https://github.com/techslaves/kubernetes/tree/main/deployment-pv-nfs)
+***NOTE***
+** Contents of yaml can be found at [TechSlaves Repo: deployment-pv-nfs](https://github.com/techslaves/kubernetes/tree/main/deployment-pv-nfs) **
