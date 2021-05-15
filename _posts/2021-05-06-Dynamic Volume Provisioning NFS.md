@@ -1,21 +1,36 @@
 ---
 layout: post
-title:  Kubernetes Dynamic Provisioning - Persistent Volume on demand
+title:  Post 02 - Kubernetes Dynamic Provisioning, Persistent Volume on demand (Using helm charts)
 excerpt:
-  "In this post we will cover how to storage volume on demand in Kubernetes. NFS Dynamic provisioning will be setup using helm chart. "
+  "In this post we will cover how to create storage volume (Persistent Volume) on demand in Kubernetes."
 date:   2021-05-06 17:40:40 +0530
 categories:
   - "Devops"
 tags:
   - Kubernetes
 ---
+
+In this post I will be covering details of configuring NFS dynamic provisioner on Bare Metal VM's. This article is part of series of Harbor High Availability
+
+1) Harbor High Availability deployment on Kubernetes \
+[Post 01 - Harbor High Availability deployment on Kubernetes]({% link _posts/2021-05-14-Harbor High Availability deployment on Kubernetes.md %}) \
+
+2) Kubernetes Dynamic Provisioning - Persistent Volume on demand (Using helm charts) (this post)
+
+3) High available Redis (Using helm charts)
+
+4) High available PostgreSQL database (Using helm charts) \
+[Post 04 - PostgreSQL High Availability deployment on Kubernetes]({% link _posts/2021-05-15-PostgeSQL High Availability deployment on Kubernetes.md %}) \
+
+5) Harbor High Availability deployment in action on Kubernetes using helm chart. \
+
+#### *This article can also be used to configure NFS Dynamic Provisioning even if you are not installing Harbor High Availability.*
+
 **Prerequisite**
 
 NFS server is up and running.
 
-All worker nodes on which pods will be deployed has a directory mounted on NFS server which will be used for creating persistent volume.
-
-Read this to create NFS server
+Read my previous post to create NFS server and bootstrap kubernetes using kubeadm.
 
 - [Bootstrap Kubernetes cluster with PV as NFS ]({% link
   _posts/2021-01-14-Kubernetes.md %})
@@ -63,6 +78,8 @@ Run $kubectl get sc
 
 You should be able to see storage class with name `nfs-client`.
 
+*Using --kubeconfig parameter as I am installing helm chart from powershell from my Windows laptop on remote kubernetes cluster.*
+
 **Test automatic PV creation on NFS server***
 
 Create below PVC and check if underlying PV is created on NFS server automatically
@@ -73,3 +90,6 @@ Run $  kubectl get pv, pvc
 
 Above command will show PVC created from above yaml and underlying pv.
 Go to the nfs server on mount directory and one can find underlying pv folder.
+
+**NOTE**
+ This usecase was implemented was done on bare-metal cluster.
