@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://techslaves.github.io/blog</id>
-    <title>TechHustlewithUG Blog</title>
+    <title>Utsav Garg Blog</title>
     <updated>2021-09-25T17:40:40.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://techslaves.github.io/blog"/>
-    <subtitle>TechHustlewithUG Blog</subtitle>
+    <subtitle>Utsav Garg Blog</subtitle>
     <icon>https://techslaves.github.io/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Dive - Into docker images]]></title>
