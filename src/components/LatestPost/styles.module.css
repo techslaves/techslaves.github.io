@@ -1,0 +1,67 @@
+.latestPost {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.scrollingWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding: 1rem 0.5rem;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  justify-content: center; /* Centers items if they don't overflow */
+}
+
+.scrollingWrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scrollingWrapper::-webkit-scrollbar-track {
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 4px;
+}
+
+.scrollingWrapper::-webkit-scrollbar-thumb {
+  background: var(--ifm-color-primary);
+  border-radius: 4px;
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 300px;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-card-border-radius);
+  background-color: var(--ifm-card-background-color);
+  box-shadow: var(--ifm-global-shadow-lw);
+  transition: transform 0.2s ease-in-out;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+.cardHeader {
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.description {
+  margin-bottom: 1.5rem;
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.9rem;
+  flex-grow: 1;
+}

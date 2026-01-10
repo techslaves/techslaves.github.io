@@ -10,7 +10,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'TechHustlewithUG',
+  title: 'Utsav Garg',
   tagline: 'Keep EXPLORING Keep LEARNING',
   favicon: 'img/favicon.ico',
 
