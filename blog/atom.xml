@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://techslaves.github.io/blog</id>
+    <title>TechHustlewithUG Blog</title>
+    <updated>2021-09-25T17:40:40.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://techslaves.github.io/blog"/>
+    <subtitle>TechHustlewithUG Blog</subtitle>
+    <icon>https://techslaves.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Dive - Into docker images]]></title>
+        <id>https://techslaves.github.io/blog/2021/19/25/Dive - Into your docker images</id>
+        <link href="https://techslaves.github.io/blog/2021/19/25/Dive - Into your docker images"/>
+        <updated>2021-09-25T17:40:40.000Z</updated>
+        <summary type="html"><![CDATA[Docker Image Layers]]></summary>
+        <content type="html"><![CDATA[<p><strong>Docker Image Layers</strong></p>
+<p>Usually when a developer looks into docker images docker image history <code>&lt;image-id&gt;</code> is used to understand each layer, size of each layer and other image.</p>
+<p>Reducing image size is a common problem which is faced while building docker image and to overcome this problem we follow best practices like using multi stage build , using smaller base image, use &amp;&amp; with RUN command to reduce number of layers.</p>
+<p>DIVE is a tool which help in analysis of Image layers, Potential wasted Image, Image efficiency score. It help visualise each image layer and files added and modified in each layer.</p>
+<p>It is supported on Windows, MacOs and Linux.</p>
+<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/Dive_Image_Inspection-a049a1f71a54f11caf6c935982a5e0e7.JPG" width="2880" height="1736" class="img_ev3q"></p>
+<p>Various option of DIVE usage:</p>
+<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/Dive_Usage-6844e34cca16cfbb12472ad6fe036c8d.JPG" width="2760" height="584" class="img_ev3q"></p>
+<p>DIVE can also be integrated with CI tool to check if image passes highestUserWastedPercent (highest allowable percentage of bytes wasted), highestWastedBytes(highest allowable bytes wasted) and lowestEfficiency(lowest allowable image efficiency). If these criteria does not meet the expectation docker push to Docker Image repository will fail.</p>
+<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/Dive_CI_Integration-3825b07019fd2c8d5cee3caaebe568c1.JPG" width="1626" height="476" class="img_ev3q"></p>
+<p>Integration will fail incase docker image does not meet the specified criteria.</p>
+<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/Dive_CI_Failed-67927729b8fdd2dd1ec54157dda12a96.JPG" width="1348" height="512" class="img_ev3q"></p>
+<p>DIVE can also be optimsed by placing .dive.yaml file in home directory.</p>]]></content>
+        <category label="Kubernetes" term="Kubernetes"/>
+        <category label="Docker" term="Docker"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Post 01 - Harbor High Availability deployment on Kubernetes]]></title>
+        <id>https://techslaves.github.io/blog/2021/05/14/Harbor High Availability deployment on Kubernetes</id>
+        <link href="https://techslaves.github.io/blog/2021/05/14/Harbor High Availability deployment on Kubernetes"/>
+        <updated>2021-05-14T17:40:40.000Z</updated>
+        <summary type="html"><![CDATA[In this post I will be covering details of deployment of Harbor High Availability on Bare Metal VM's. This will be a series of article covering]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/harbor-5f09199fda1645d6d5f82675c63024f2.png" width="2655" height="755" class="img_ev3q"></p>
+<p>In this post I will be covering details of deployment of Harbor High Availability on Bare Metal VM's. This will be a series of article covering</p>
+<ol>
+<li class="">
+<p>Harbor High Availability deployment on Kubernetes (this post)</p>
+</li>
+<li class="">
+<p>Kubernetes Dynamic Provisioning - Persistent Volume on demand (Using helm charts) <br>
+<a class="" href="https://techslaves.github.io/blog/2021/05/06/Dynamic%20Volume%20Provisioning%20NFS">Kubernetes Dynamic Provisioning - Persistent Volume on demand (Using helm charts)</a> \</p>
+</li>
+<li class="">
+<p>High available Redis (Using helm charts) \</p>
+</li>
+<li class="">
+<p>High available PostgreSQL database (Using helm charts) <br>
+<a class="" href="https://techslaves.github.io/blog/2021/05/15/PostgeSQL%20High%20Availability%20deployment%20on%20Kubernetes">Post 04 - PostgreSQL High Availability deployment on Kubernetes</a> \</p>
+</li>
+<li class="">
+<p>Harbor High Availability deployment in action on Kubernetes using helm chart. \</p>
+</li>
+</ol>
+<blockquote>
+<p>Harbor is an open source registry that secures artifacts with policies and role-based access control,
+ensures images are scanned and free from vulnerabilities, and signs images as trusted.
+Harbor, a CNCF Graduated project, delivers compliance, performance, and interoperability to help you consistently
+and securely manage artifacts across cloud native compute platforms like Kubernetes and Docker. - Source (Harbor.io)</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="prerequisite">Prerequisite<a href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes#prerequisite" class="hash-link" aria-label="Direct link to Prerequisite" title="Direct link to Prerequisite" translate="no">​</a></h2>
+<p>To install harbor using helm chart on Kubernetes cluster, we need to have</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-kubernetes-cluster-110-"><em>1) Kubernetes cluster 1.10+ :</em><a href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes#1-kubernetes-cluster-110-" class="hash-link" aria-label="Direct link to 1-kubernetes-cluster-110-" title="Direct link to 1-kubernetes-cluster-110-" translate="no">​</a></h4>
+<p>We need to have Kubernetes cluster. Refer my previous post for this - <a class="" href="https://techslaves.github.io/blog/2021/01/14/Kubernetes">Bootstrap Kubernetes cluster with PV as NFS </a></p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-helm-280-"><em>2) Helm 2.8.0+ :</em><a href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes#2-helm-280-" class="hash-link" aria-label="Direct link to 2-helm-280-" title="Direct link to 2-helm-280-" translate="no">​</a></h4>
+<p>I have installed helm in my local windows machine and using cluster config file from .kube folder to remotely connect to cluster.
+We can install helm chart on remote cluster using --kubeconfig parameter with value as path to config file.
+Eg: --kubeconfig=D:\kubernetes\config</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-high-available-postgresql-database-"><em>3) High available PostgreSQL database :</em><a href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes#3-high-available-postgresql-database-" class="hash-link" aria-label="Direct link to 3-high-available-postgresql-database-" title="Direct link to 3-high-available-postgresql-database-" translate="no">​</a></h4>
+<p>Harbor helm chart don't deploy PostgreSQL HA cluster and we need to pass IP address in values.yaml file of Harbor helm for its integration with Harbor.
+This can be achieved using bitnami helm chart from this link - <a href="https://github.com/bitnami/charts/tree/master/bitnami/postgresql-ha" target="_blank" rel="noopener noreferrer" class="">PostgreSQL helm</a></p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-high-available-redis-"><em>4) High available Redis :</em><a href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes#4-high-available-redis-" class="hash-link" aria-label="Direct link to 4-high-available-redis-" title="Direct link to 4-high-available-redis-" translate="no">​</a></h4>
+<p>Harbor helm chart don't deploy Redis HA cluster and we need to pass IP address in values.yaml file of Harbor helm for its integration with Harbor.
+This can be achieved using bitnami helm chart from this link - <a href="https://github.com/bitnami/charts/tree/master/bitnami/redis" target="_blank" rel="noopener noreferrer" class="">Redis Helm</a></p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-pvc-that-can-be-shared-across-nodes-or-external-object-storage-"><em>5) PVC that can be shared across nodes or external object storage :</em><a href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes#5-pvc-that-can-be-shared-across-nodes-or-external-object-storage-" class="hash-link" aria-label="Direct link to 5-pvc-that-can-be-shared-across-nodes-or-external-object-storage-" title="Direct link to 5-pvc-that-can-be-shared-across-nodes-or-external-object-storage-" translate="no">​</a></h4>
+<p>I will be using NFS as shared storage device across nodes. Along with this I will configure NFS dynamic Provisioner for automatically creating PV on demand on the NFS.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="now-lets-discuss-on-details-of-pods-created-using-harbor-helm-chart">Now lets discuss on details of POD's created using Harbor helm chart:<a href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes#now-lets-discuss-on-details-of-pods-created-using-harbor-helm-chart" class="hash-link" aria-label="Direct link to Now lets discuss on details of POD's created using Harbor helm chart:" title="Direct link to Now lets discuss on details of POD's created using Harbor helm chart:" translate="no">​</a></h2>
+<p>I did not enabled harbor-exporter for now.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-harbor-chartmuseum--"><em>1) harbor-chartmuseum -</em><a href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes#1-harbor-chartmuseum--" class="hash-link" aria-label="Direct link to 1-harbor-chartmuseum--" title="Direct link to 1-harbor-chartmuseum--" translate="no">​</a></h4>
+<p>Harbor support storing helm chart along with docker Image. Incase you don't require helm chart support in your private Harbor repository you can disable this using harbor helm chart.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-harbor-core--"><em>2) harbor-core -</em><a href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes#2-harbor-core--" class="hash-link" aria-label="Direct link to 2-harbor-core--" title="Direct link to 2-harbor-core--" translate="no">​</a></h4>
+<p>Harbor Core is one of the main components of Harbor. It interacts with redis cluster. So, incase redis cluster integration is not successful this pod will not come up and in turn harbor-jobservice pod will not come.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-harbor-jobservice--"><em>3) harbor-jobservice -</em><a href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes#3-harbor-jobservice--" class="hash-link" aria-label="Direct link to 3-harbor-jobservice--" title="Direct link to 3-harbor-jobservice--" translate="no">​</a></h4>
+<p>Harbor jobservice is one of the main components of Harbor. This is the last pod to come up in all the pods of helm chart.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-harbor-nginx--"><em>4) harbor-nginx -</em><a href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes#4-harbor-nginx--" class="hash-link" aria-label="Direct link to 4-harbor-nginx--" title="Direct link to 4-harbor-nginx--" translate="no">​</a></h4>
+<p>Nginx container is itself a Reverse Proxy in front of the core and the portal containers. If Harbor is exposed as Ingress, then nginx pod is not deployed.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-harbor-notary-server--"><em>5) harbor-notary-server -</em><a href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes#5-harbor-notary-server--" class="hash-link" aria-label="Direct link to 5-harbor-notary-server--" title="Direct link to 5-harbor-notary-server--" translate="no">​</a></h4>
+<p>Notary server is used for signing and verifying images. It is a optional pod and can be disabled used values.yaml in Harbor Helm charts.
+This is used when you want to sign you image while pushing.
+Developer enable content trust and export server details.
+export DOCKER_CONTENT_TRUST=1 and export DOCKER_CONTENT_TRUST_SERVER=https://IP_ADDRESS:4443</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-harbor-notary-signer--"><em>6) harbor-notary-signer -</em><a href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes#6-harbor-notary-signer--" class="hash-link" aria-label="Direct link to 6-harbor-notary-signer--" title="Direct link to 6-harbor-notary-signer--" translate="no">​</a></h4>
+<p>Notary Signer cordinates with notary-server for signing image.</p>
+<p>In the next post I will be configuring NFS-Dynamic provisioner which will create PV's on demand for PVC's created by Redis, PostgreSQL and Harbor Helm chart- <br>
+<a class="" href="https://techslaves.github.io/blog/2021/05/06/Dynamic%20Volume%20Provisioning%20NFS">Kubernetes Dynamic Provisioning - Persistent Volume on demand (Using helm charts)</a></p>]]></content>
+        <category label="Kubernetes" term="Kubernetes"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Post 04 - PostgreSQL High Availability deployment on Kubernetes]]></title>
+        <id>https://techslaves.github.io/blog/2021/05/15/PostgeSQL High Availability deployment on Kubernetes</id>
+        <link href="https://techslaves.github.io/blog/2021/05/15/PostgeSQL High Availability deployment on Kubernetes"/>
+        <updated>2021-05-14T17:40:40.000Z</updated>
+        <summary type="html"><![CDATA[In this post I will be covering details of deployment of PostgreSQL High Availability on Bare Metal VM's. This article is part of series of Harbor High Availability]]></summary>
+        <content type="html"><![CDATA[<p>In this post I will be covering details of deployment of PostgreSQL High Availability on Bare Metal VM's. This article is part of series of Harbor High Availability</p>
+<ol>
+<li class="">
+<p>Harbor High Availability deployment on Kubernetes <br>
+<a class="" href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes">Post 01 - Harbor High Availability deployment on Kubernetes</a>\</p>
+</li>
+<li class="">
+<p>Kubernetes Dynamic Provisioning : Persistent Volume on demand (Using helm charts) <br>
+<a class="" href="https://techslaves.github.io/blog/2021/05/06/Dynamic%20Volume%20Provisioning%20NFS">Kubernetes Dynamic Provisioning - Persistent Volume on demand (Using helm charts)</a> \</p>
+</li>
+<li class="">
+<p>High available Redis (Using helm charts)</p>
+</li>
+<li class="">
+<p>High available PostgreSQL database (Using helm charts) (this post)</p>
+</li>
+<li class="">
+<p>Harbor High Availability deployment in action on Kubernetes using helm chart.</p>
+</li>
+</ol>
+<blockquote>
+<p>PostgreSQL is an open source object-relational database known for its reliability and data integrity.</p>
+</blockquote>
+<p><strong>Prerequisite</strong></p>
+<ol>
+<li class="">Kubernetes cluster is up and running. To know how to achieve this read my previous post bootstrap kubernetes using kubeadm.</li>
+</ol>
+<ul>
+<li class=""><a class="" href="https://techslaves.github.io/blog/2021/01/14/Kubernetes">Bootstrap Kubernetes cluster with PV as NFS </a></li>
+</ul>
+<ol start="2">
+<li class="">NameSpace with name harbor-private-registry is already existing.
+If its not created run:</li>
+</ol>
+<p>$ kubectl create ns harbor-private-registry</p>
+<ol start="3">
+<li class="">Dynamic Volume Provisioning NFS is working and able to create pv on demand.</li>
+</ol>
+<ul>
+<li class=""><a class="" href="https://techslaves.github.io/blog/2021/05/06/Dynamic%20Volume%20Provisioning%20NFS">Bootstrap Kubernetes cluster with PV as NFS </a></li>
+</ul>
+<p><em><strong>Using helm chart for PostgreSQL High Availability cluster</strong></em></p>
+<p>We will be using bitnami helm chart for deploying High Availabilty PostgreSQL cluster - <a href="https://github.com/bitnami/charts/tree/master/bitnami/postgresql-ha" target="_blank" rel="noopener noreferrer" class="">PostgreSQL helm</a></p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="we-need-to-modify-valuesyaml-file-or-override-below-values-using---set-flag-while-installing-helm">We need to modify values.yaml file or override below values using --set flag while installing helm:<a href="https://techslaves.github.io/blog/2021/05/15/PostgeSQL%20High%20Availability%20deployment%20on%20Kubernetes#we-need-to-modify-valuesyaml-file-or-override-below-values-using---set-flag-while-installing-helm" class="hash-link" aria-label="Direct link to We need to modify values.yaml file or override below values using --set flag while installing helm:" title="Direct link to We need to modify values.yaml file or override below values using --set flag while installing helm:" translate="no">​</a></h4>
+<p><em>--set pgpool.replicaCount=2</em></p>
+<p><em>--set postgresql.replicaCount=3</em></p>
+<p><em>--set postgresql.existingSecret=postgresql-harbor-secret</em> : Name of secret created to store postgreSQL and repmgr password</p>
+<p><em>--set pgpool.adminPassword=MTk5MCRwb3N0Z3Jlc3Fs</em></p>
+<p><em>--set pgpoolImage.tag=4.2.2-debian-10-r72</em></p>
+<p><em>--set postgresqlImage.tag=13.2.0-debian-10-r77</em></p>
+<p><em>--set global.storageClass=nfs-client</em> : Value (nfs-client) is name to storageClass created with NFS Dynamic Provisioner.</p>
+<p><em>--set service.type=ClusterIP</em></p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="note--creating-below-secret-is-important-else-you-wont-be-able-to-reattach-existing-pv-on-next-uninstall-and-reinstall-of-postgresql-helm-chart-due-to-any-reason">Note : <em>Creating below Secret is important else you wont be able to reattach existing pv on next uninstall and reinstall of postgreSQL helm chart due to any reason.</em><a href="https://techslaves.github.io/blog/2021/05/15/PostgeSQL%20High%20Availability%20deployment%20on%20Kubernetes#note--creating-below-secret-is-important-else-you-wont-be-able-to-reattach-existing-pv-on-next-uninstall-and-reinstall-of-postgresql-helm-chart-due-to-any-reason" class="hash-link" aria-label="Direct link to note--creating-below-secret-is-important-else-you-wont-be-able-to-reattach-existing-pv-on-next-uninstall-and-reinstall-of-postgresql-helm-chart-due-to-any-reason" title="Direct link to note--creating-below-secret-is-important-else-you-wont-be-able-to-reattach-existing-pv-on-next-uninstall-and-reinstall-of-postgresql-helm-chart-due-to-any-reason" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="important-steps-to-create-secret-dont-miss-this">Important Steps to create Secret (don't miss this)<a href="https://techslaves.github.io/blog/2021/05/15/PostgeSQL%20High%20Availability%20deployment%20on%20Kubernetes#important-steps-to-create-secret-dont-miss-this" class="hash-link" aria-label="Direct link to Important Steps to create Secret (don't miss this)" title="Direct link to Important Steps to create Secret (don't miss this)" translate="no">​</a></h4>
+<p>Create secret for configurable parameter of bitnami postgreSQL HA Helm chart values.yaml <strong>postgresql.existingSecret</strong></p>
+<p>Create secret using below command and then install postgreSQL using helm chart:</p>
+<script src="https://gist.github.com/techslaves/a32ff5accc463cf68fba49f227588725.js"></script>
+<p>You will get below output on successfull installation of helm chart:</p>
+<hr>
+<p><em>NAME: postgresql-harbor-private-registry</em> <br>
+<em>LAST DEPLOYED: Fri May  15 12:19:43 2021</em> <br>
+<em>NAMESPACE: harbor-private-registry</em> <br>
+<em>STATUS: deployed</em> <br>
+<em>REVISION: 1</em> <br>
+<em>TEST SUITE: None</em> <br>
+<em>NOTES:</em> \</p>
+<p><em>Please be patient while the chart is being deployed</em></p>
+<p><em>PostgreSQL can be accessed through Pgpool via port 5432 on the following DNS name from within your cluster:</em></p>
+<p><em>postgresql-harbor-private-registry-pgpool.harbor.svc.cluster.local</em></p>
+<p><em>Pgpool acts as a load balancer for PostgreSQL and forward read/write connections to the primary node while read-only connections are forwarded to standby nodes.</em></p>
+<p><em>To get the password for "postgres" run:</em></p>
+<p><em>export POSTGRES_PASSWORD=$(kubectl get secret --namespace harbor-private-registry postgresql-harbor-private-registry-secret -o jsonpath="{.data.postgresql-password}"</em> | base64 --decode)
+<em>To get the password for "repmgr" run:</em></p>
+<p><em>--command -- psql -h postgresql-harbor-private-registry-pgpool -p 5432 -U postgres -d postgres</em></p>
+<p><em>To connect to your database from outside the cluster execute the following commands:</em>
+*psql -h 127.0.0.1 -p 5432 -U postgres -d postgres *</p>
+<hr>
+<p>Once the pods are up and running exec into postgreSQL stateful set pod and run *psql -h 127.0.0.1 -p 5432 -U postgres -d postgres *</p>
+<p>Enter the password you get from *kubectl get secret --namespace harbor-private-registry postgresql-harbor-private-registry-secret -o jsonpath="{.data.postgresql-password}" | base64 --decode *</p>
+<p>Create following database for harbor. Tables will be created automatically when Harbor HA starts</p>
+<p>CREATE DATABASE notary_server;</p>
+<p>CREATE DATABASE notary_signer;</p>
+<p>CREATE DATABASE harbor_core;</p>
+<p>postgres-# \l <em>(this will list all the database)</em></p>
+<script src="https://gist.github.com/techslaves/b7bc2a5ea2a3c347324d375b6a49e04b.js"></script>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="architecture-of-helm-chart-deployed">Architecture of helm chart deployed<a href="https://techslaves.github.io/blog/2021/05/15/PostgeSQL%20High%20Availability%20deployment%20on%20Kubernetes#architecture-of-helm-chart-deployed" class="hash-link" aria-label="Direct link to Architecture of helm chart deployed" title="Direct link to Architecture of helm chart deployed" translate="no">​</a></h3>
+<p>Images used while deploying this helm chart:</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-bitnamipostgresql-repmgr-"><em>1) bitnami/postgresql-repmgr :</em><a href="https://techslaves.github.io/blog/2021/05/15/PostgeSQL%20High%20Availability%20deployment%20on%20Kubernetes#1-bitnamipostgresql-repmgr-" class="hash-link" aria-label="Direct link to 1-bitnamipostgresql-repmgr-" title="Direct link to 1-bitnamipostgresql-repmgr-" translate="no">​</a></h4>
+<p>PostgreSQL is an open source object-relational database known for its reliability and data integrity. This solution includes repmgr, an open-source tool for managing replication and failover on PostgreSQL clusters.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-bitnamipgpool-"><em>2) bitnami/pgpool :</em><a href="https://techslaves.github.io/blog/2021/05/15/PostgeSQL%20High%20Availability%20deployment%20on%20Kubernetes#2-bitnamipgpool-" class="hash-link" aria-label="Direct link to 2-bitnamipgpool-" title="Direct link to 2-bitnamipgpool-" translate="no">​</a></h4>
+<p>Pgpool-II is a PostgreSQL proxy. It stands between PostgreSQL servers and their clients providing connection pooling, load balancing, automated failover, and replication.</p>
+<p>After you deploy PostgreSQL HA using helm chart it will deploy two Pod's of <em>pgpool</em> and  three pods of <em>postgresql-repmgr</em>
+pgpool is a deployment and postgresql-repmgr is a stateful set.</p>
+<p>This will create one master and two slave cluster where Pgpool will be responsible for promoting slave to master incase master goes down.</p>
+<p>Master (pod/postgresql-harbor-postgresql-0) will be single point for write operation where as master and two slaves (pod/postgresql-harbor-postgresql-1 and pod/postgresql-harbor-postgresql-2) will be three point for read operation.</p>
+<p>pod/postgresql-harbor-pgpool-23243g54f8-afdsc <br>
+<!-- -->pod/postgresql-harbor-pgpool-11834437d4-ojgfd  <br>
+<!-- -->pod/postgresql-harbor-postgresql-0 <br>
+<!-- -->pod/postgresql-harbor-postgresql-1  <br>
+<!-- -->pod/postgresql-harbor-postgresql-2</p>
+<p>Two Cluster IP service will be created and one headless service.</p>
+<p>PGPool pod's can be reached through pgpool cluster IP service and postgreSQL pods communicate to postgresql service.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="for-integration-with-harbor-ha-pass-pgpool-cluster-ip-as-pg-internally-communicates-to-postgresql-master-and-slave-using-headless-service"><em>For integration with harbor HA pass Pgpool Cluster IP as PG internally communicates to postgreSQL master and slave using headless service.</em><a href="https://techslaves.github.io/blog/2021/05/15/PostgeSQL%20High%20Availability%20deployment%20on%20Kubernetes#for-integration-with-harbor-ha-pass-pgpool-cluster-ip-as-pg-internally-communicates-to-postgresql-master-and-slave-using-headless-service" class="hash-link" aria-label="Direct link to for-integration-with-harbor-ha-pass-pgpool-cluster-ip-as-pg-internally-communicates-to-postgresql-master-and-slave-using-headless-service" title="Direct link to for-integration-with-harbor-ha-pass-pgpool-cluster-ip-as-pg-internally-communicates-to-postgresql-master-and-slave-using-headless-service" translate="no">​</a></h4>
+<p>In the next post I will be deploying Harbor Helm and details of Integration with Redis and PostgreSQL cluster - <br>
+<a class="" href="https://techslaves.github.io/blog/2021/05/06/Dynamic%20Volume%20Provisioning%20NFS">Kubernetes Dynamic Provisioning - Persistent Volume on demand (Using helm charts)</a></p>]]></content>
+        <category label="Kubernetes" term="Kubernetes"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Post 02 - Kubernetes Dynamic Provisioning, Persistent Volume on demand (Using helm charts)]]></title>
+        <id>https://techslaves.github.io/blog/2021/05/06/Dynamic Volume Provisioning NFS</id>
+        <link href="https://techslaves.github.io/blog/2021/05/06/Dynamic Volume Provisioning NFS"/>
+        <updated>2021-05-06T17:40:40.000Z</updated>
+        <summary type="html"><![CDATA[In this post I will be covering details of configuring NFS dynamic provisioner on Bare Metal VM's. This article is part of series of Harbor High Availability]]></summary>
+        <content type="html"><![CDATA[<p>In this post I will be covering details of configuring NFS dynamic provisioner on Bare Metal VM's. This article is part of series of Harbor High Availability</p>
+<ol>
+<li class="">
+<p>Harbor High Availability deployment on Kubernetes <br>
+<a class="" href="https://techslaves.github.io/blog/2021/05/14/Harbor%20High%20Availability%20deployment%20on%20Kubernetes">Post 01 - Harbor High Availability deployment on Kubernetes</a> \</p>
+</li>
+<li class="">
+<p>Kubernetes Dynamic Provisioning - Persistent Volume on demand (Using helm charts) (this post)</p>
+</li>
+<li class="">
+<p>High available Redis (Using helm charts)</p>
+</li>
+<li class="">
+<p>High available PostgreSQL database (Using helm charts) <br>
+<a class="" href="https://techslaves.github.io/blog/2021/05/15/PostgeSQL%20High%20Availability%20deployment%20on%20Kubernetes">Post 04 - PostgreSQL High Availability deployment on Kubernetes</a> \</p>
+</li>
+<li class="">
+<p>Harbor High Availability deployment in action on Kubernetes using helm chart. \</p>
+</li>
+</ol>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="this-article-can-also-be-used-to-configure-nfs-dynamic-provisioning-even-if-you-are-not-installing-harbor-high-availability"><em>This article can also be used to configure NFS Dynamic Provisioning even if you are not installing Harbor High Availability.</em><a href="https://techslaves.github.io/blog/2021/05/06/Dynamic%20Volume%20Provisioning%20NFS#this-article-can-also-be-used-to-configure-nfs-dynamic-provisioning-even-if-you-are-not-installing-harbor-high-availability" class="hash-link" aria-label="Direct link to this-article-can-also-be-used-to-configure-nfs-dynamic-provisioning-even-if-you-are-not-installing-harbor-high-availability" title="Direct link to this-article-can-also-be-used-to-configure-nfs-dynamic-provisioning-even-if-you-are-not-installing-harbor-high-availability" translate="no">​</a></h4>
+<p><strong>Prerequisite</strong></p>
+<p>NFS server is up and running.</p>
+<p>Read my previous post to create NFS server and bootstrap kubernetes using kubeadm.</p>
+<ul>
+<li class=""><a class="" href="https://techslaves.github.io/blog/2021/01/14/Kubernetes">Bootstrap Kubernetes cluster with PV as NFS </a></li>
+</ul>
+<p><em><strong>What is NFS dynamic provisioning</strong></em></p>
+<p>NFS dynamic provisioning allows PersistentVolume to be created on demand. There can be multiple storage class within a Kubernetes cluster which provide dynamic provisioning.</p>
+<p>One option is we have default storage class configured for the cluster and each time a PVC is raised a PV is automatically created.
+Storageclass can be marked as default using annotations under metadata.</p>
+<p>annotations:
+storageclass.kubernetes.io/is-default-class=true</p>
+<p>Other option is we have multiple dynamic provisioner configured and each time a PVC is raised it should be mentioned in yaml which provisioner user want to use to create underlying PV.
+This can be achieved through mentioning storageclass in the yaml.</p>
+<p>Usually each cloud provider provides a Volume plugin which is used as provisioner in storageclass yaml to define where underlying PV will be created for PVC on demand.</p>
+<p><em><strong>Using helm chart for dynamic provisioning</strong></em></p>
+<script src="https://gist.github.com/techslaves/7f75665d4e31f68bd6ab9895dc47382f.js"></script>
+<p><strong>Default values of helm chart which are modified:</strong></p>
+<p><em>storageClass.reclaimPolicy :</em>
+Default value is "Delete", incase if you want to retain the pv for future use override this value to "Retain". This will help to reclaim the obsoleted volume
+For instance you have a statefulset and you reduce the number of replica.
+Then again increase the number of replicas the old pv will still be lying and will automatically be attached with the new increased replica.</p>
+<p><em>storageClass.archiveOnDelete :</em>
+default value is true, which will result in archiving the pv data lying on NFS server.</p>
+<p>Above two overriden values will help to retain data with pv incase you uninstall and reinstall a same helm chart.</p>
+<p><em>replicaCount :</em>
+Increasing replica count to 3 for high availability. Which defaults to 1.</p>
+<p><em>storageClass.accessModes :</em>
+default value is ReadWriteOnce(RWO). Other posssible values are ReadOnlyMany(ROX) and ReadWriteMany(RWX)
+ReadWriteMany should be used when you want multiple pods(lying on multiple nodes) to write on same pv.
+NFS, CephFS and Glusterfs only supports all three types of access modes.</p>
+<p>Run $kubectl get sc</p>
+<p>You should be able to see storage class with name <code>nfs-client</code>.</p>
+<p><em>Using --kubeconfig parameter as I am installing helm chart from powershell from my Windows laptop on remote kubernetes cluster.</em></p>
+<p><strong>Test automatic PV creation on NFS server</strong>*</p>
+<p>Create below PVC and check if underlying PV is created on NFS server automatically</p>
+<script src="https://gist.github.com/techslaves/5212e35f209a71a347d3c0b7bd576103.js"></script>
+<p>Run $  kubectl get pv, pvc</p>
+<p>Above command will show PVC created from above yaml and underlying pv.
+Go to the nfs server on mount directory and one can find underlying pv folder.</p>
+<p><strong>NOTE</strong>
+This usecase was implemented was done on bare-metal cluster.</p>]]></content>
+        <category label="Kubernetes" term="Kubernetes"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Bootstrap Kubernetes cluster with PV as NFS]]></title>
+        <id>https://techslaves.github.io/blog/2021/01/14/Kubernetes</id>
+        <link href="https://techslaves.github.io/blog/2021/01/14/Kubernetes"/>
+        <updated>2021-01-14T17:40:40.000Z</updated>
+        <summary type="html"><![CDATA[Create three ec2 instance]]></summary>
+        <content type="html"><![CDATA[<p><strong>Create three ec2 instance</strong></p>
+<p>Master node : centos <br>
+<!-- -->Worker node: centos <br>
+<!-- -->NFS server : ubuntu</p>
+<p><strong>Steps to create NFS Server on ubuntu instance</strong></p>
+<script src="https://gist.github.com/techslaves/70de4a76c0d72bf006c7d0572a081d1f.js"></script>
+<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/NFS1-b3fef7d568d0e9cd58fb34e0004db2e2.JPG" width="560" height="148" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/NFS2-b88d87cd6f958066f73388ebf3682610.JPG" width="564" height="150" class="img_ev3q"></p>
+<p>Make sure you have below inbound rules for NFS client to ping to NFS server and mount directory on client-server</p>
+<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/NFS3-9ee76a93a1b6f2e356c0389363711791.JPG" width="553" height="214" class="img_ev3q"></p>
+<p><strong>Setup Master node (control plane) - Install Docker and Kubernetes (kubeadm, kubectl, kubelet)</strong></p>
+<script src="https://gist.github.com/techslaves/b5830e4a9155e3f85fb199ebb5774329.js"></script>
+<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/NFS4-39504360db72928c2840caea0c7c87ad.JPG" width="561" height="290" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/NFS5-536d36499da34183f6007cbe4a5c4362.JPG" width="559" height="292" class="img_ev3q"></p>
+<p>Add below Inbound rules with masternode of kubernetes cluster</p>
+<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/NFS6-27f30069d3498ca40118161f1724b0fa.JPG" width="772" height="214" class="img_ev3q"></p>
+<p><strong>Setup Worker Node</strong></p>
+<p>Install Docker, kubeadm, kubelet and kubectl as done in above steps for master node</p>
+<ol>
+<li class="">
+<p>Login to worker node</p>
+</li>
+<li class="">
+<p>Add below inbound rules on worker nodes (Without adding port TCP/UDP 2049/111 you won't be able to mount worker node on NFSdirectory)</p>
+</li>
+</ol>
+<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/NFS7-a0183ce83eaef279eb92ba721823c958.JPG" width="725" height="251" class="img_ev3q"></p>
+<ol start="3">
+<li class="">
+<p>Run token which you got from kubeadm init command:
+<code>$ kubeadm join 1X2.3X.4.XXX:6443 --token XXXXXXXXXXXXXXXXXXXXXXX\ --discovery-token-ca-cert-hash sha256:XXXXXXXXXXXXX</code></p>
+</li>
+<li class="">
+<p><code>$ sudo yum install nfs-util </code></p>
+</li>
+</ol>
+<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/NFS8-d95da767e885ecfb02d2bc82b8a719b4.JPG" width="557" height="295" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/NFS9-dfa9c1c8f4ed0f3d253706d57df31b42.JPG" width="558" height="236" class="img_ev3q"></p>
+<ol start="5">
+<li class=""><code>mount -t nfs :/srv/nfs/mydata /mnt </code></li>
+<li class=""><code>mount | grep mydata</code></li>
+</ol>
+<p><img decoding="async" loading="lazy" src="https://techslaves.github.io/assets/images/NFS10-cf1594bd402af096667dcdfdfe074f4b.JPG" width="555" height="32" class="img_ev3q"></p>
+<p><em><strong>Create PV, PVC and POD's to Use NFS server as underlying storage:</strong></em></p>
+<ol>
+<li class="">
+<p>Login back to master node</p>
+</li>
+<li class="">
+<p>Run
+$kubectl get nodes (this should list one master and worker node as Ready)</p>
+</li>
+</ol>
+<p><em>Create default nfs-storageclass.yaml</em></p>
+<script src="https://gist.github.com/techslaves/44c423d5d887c1941df3ab23cbd37d3f.js"></script>
+<p><em><strong>Create nfs-pv.yaml file with below contents</strong></em></p>
+<script src="https://gist.github.com/techslaves/3bf0f8f6728cd46db7c9dead33bf5168.js"></script>
+<p><em><strong>Create pvc.yaml</strong></em></p>
+<script src="https://gist.github.com/techslaves/30229b3dfc3777d66cfdb3543215c06c.js"></script>
+<p><em><strong>Create nfs-deployment.yaml</strong></em></p>
+<script src="https://gist.github.com/techslaves/d1999bb64a02e767fb1f16c673e4af33.js"></script>
+<script src="https://gist.github.com/techslaves/0a86d2c1479ce24bfa9158bf2499afef.js"></script>
+<p>Any file created on location /usr/share/nginx/html will be backed up on NFS server location /srv/nfs/mydata</p>
+<p><em><strong>NOTE</strong></em>
+** Contents of yaml can be found at <a href="https://github.com/techslaves/kubernetes/tree/main/deployment-pv-nfs" target="_blank" rel="noopener noreferrer" class="">TechSlaves Repo: deployment-pv-nfs</a> **</p>]]></content>
+        <category label="Kubernetes" term="Kubernetes"/>
+    </entry>
+</feed>

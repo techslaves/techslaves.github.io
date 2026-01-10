@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkwebsite=globalThis.webpackChunkwebsite||[]).push([[121],{8070(e){e.exports=JSON.parse('{"tags":[{"label":"Kubernetes","permalink":"/blog/tags/kubernetes","count":5},{"label":"Docker","permalink":"/blog/tags/docker","count":1}]}')}}]);
