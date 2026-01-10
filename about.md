@@ -1,34 +1,21 @@
+# 💫 About Me:
+🔭 Cloud Engineering and Security Professional with 14+ years of experience in Software Development, Cloud Security, Compliance, DevSecOps, specializing in scalable, secure, and highly available cloud-native architectures. Proven track record in Kubernetes, AWS, GitOps, Infrastructure as Code (IaC), cost optimization, and regulatory compliance (FedRAMP, NIS2, NIST).<br><br>🤝 Expertise & Technical Skills<br>> Cloud-Native & DevOps: Kubernetes, Helm, GitOps (ArgoCD, FluxCD), CI/CD (Jenkins, GitHub Actions, Bitbucket Pipelines), Infrastructure as Code (Terraform, Terragrunt)<br>> Security & Compliance: FedRAMP, NIS2, NIST, SOC 2, SOX, AWS Security Hub, AWS Config, OPA Gatekeeper, RBAC, Network Policies, Secrets Management (External Secrets)<br>> AWS & Cloud Infrastructure: EKS, MSK, EC2, RDS, S3, VPC, ECR, DynamoDB, CloudFront, Route53, ACM, KMS, IAM, System Manager<br>> Microservices & Containerization: Docker, Harbor, Nexus, PostgreSQL, Redis<br>> Monitoring & Observability: Prometheus, Grafana, ELK Stack, AWS CloudWatch<br>> Other Tools: MinIO, Kafka Connector, JIRA Administrator<br><br>⚡ Key Achievements & Experience<br>✔ GitOps & Kubernetes Automation – Led GitOps-driven EKS cluster management with zero-downtime upgrades, auto-scaling, and security hardening.<br>✔ Cloud Security & Compliance – Implemented FedRAMP-authorized cloud environments with NIS2 & NIST-compliant security controls, ensuring robust governance and risk management.<br>✔ Cost Optimization & Performance Tuning – Optimized AWS costs by 30% through Spot Instances, Savings Plans, right-sizing, and storage lifecycle automation.<br>✔ Microservices Transformation – Led monolithic to microservices migration, improving system agility, deployment speed, and fault tolerance.<br>✔ Kubernetes Security & Auditing – Enforced RBAC, pod security policies, and vulnerability scanning for container security, ensuring compliance with regulatory frameworks.<br>✔ Enterprise Software Development – Extensive experience in Java/JEE, Spring Boot, Hibernate, building mission-critical applications for banking, finance, and payment reconciliation systems.<br><br>Passionate about cloud security, automation, and compliance-driven cloud solutions. Always eager to explore emerging DevSecOps technologies to drive innovation and operational excellence.
+
+
+## 🌐 Socials:
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/itsutsavgarg) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/itsutsavgarg) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:er.utsavgarg@gmail.com)
+
+# 💻 Tech Stack:
+![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=plastic&logo=redis&logoColor=white) ![AmazonDynamoDB](https://img.shields.io/badge/Amazon%20DynamoDB-4053D6?style=plastic&logo=Amazon%20DynamoDB&logoColor=white) ![CircleCI](https://img.shields.io/badge/circleci-%23161616.svg?style=plastic&logo=circleci&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=plastic&logo=githubactions&logoColor=white) ![AquaSec](https://img.shields.io/badge/aqua-%231904DA.svg?style=plastic&logo=aqua&logoColor=#0018A8) ![Jenkins](https://img.shields.io/badge/jenkins-%232C5263.svg?style=plastic&logo=jenkins&logoColor=white) ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=plastic&logo=nginx&logoColor=white) ![Apache Tomcat](https://img.shields.io/badge/apache%20tomcat-%23F8DC75.svg?style=plastic&logo=apache-tomcat&logoColor=black) ![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=plastic&logo=Apache%20Maven&logoColor=white) ![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=plastic&logo=apache&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=plastic&logo=amazon-aws&logoColor=white) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=plastic&logo=openjdk&logoColor=white) ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=plastic&logo=markdown&logoColor=white) ![Bash Script](https://img.shields.io/badge/bash_script-%23121011.svg?style=plastic&logo=gnu-bash&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=plastic&logo=postgresql&logoColor=white) ![Realm](https://img.shields.io/badge/Realm-39477F?style=plastic&logo=realm&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=plastic&logo=mysql&logoColor=white) ![Jira](https://img.shields.io/badge/jira-%230A0FFF.svg?style=plastic&logo=jira&logoColor=white) ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=plastic&logo=kubernetes&logoColor=white) ![Grafana](https://img.shields.io/badge/grafana-%23F46800.svg?style=plastic&logo=grafana&logoColor=white) ![Confluence](https://img.shields.io/badge/confluence-%23172BF4.svg?style=plastic&logo=confluence&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=plastic&logo=docker&logoColor=white) ![ElasticSearch](https://img.shields.io/badge/-ElasticSearch-005571?style=plastic&logo=elasticsearch) ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=plastic&logo=terraform&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=plastic&logo=postman&logoColor=white)
+# 📊 GitHub Stats:
+![](https://github-readme-stats.vercel.app/api?username=techslaves&theme=default&hide_border=false&include_all_commits=true&count_private=true)<br/>
+![](https://nirzak-streak-stats.vercel.app/?user=techslaves&theme=default&hide_border=false)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=techslaves&theme=default&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+
+## 🏆 GitHub Trophies
+![](https://github-profile-trophy.vercel.app/?username=techslaves&theme=default&no-frame=false&no-bg=false&margin-w=4)
+
 ---
-layout: page
-title: About
-permalink: /about/
----
+[![](https://visitcount.itsvg.in/api?id=techslaves&icon=0&color=0)](https://visitcount.itsvg.in)
 
-9+ years of experience in Product Development on various domains including Banking and Financial, Background Screening, Automotive and Travel etc.
-
-Expertise in working on complex banking products including Stocks and Options, Complex derivatives, Booking and Refund Accounting, Active and Passive Reconciliation in Payment domain.
-
-Keen on working in Financial domain projects.
-
-### More Information
-
-Skilled in Java, Microservices, Spring Boot, Hibernate, Docker, Kubernetes and Databases.
-
-### Industry Skill
-Travel Domian, Banking Domain, Investment Banking, Capital Markets, Derivatives Swaps, Stock Options, Swift Message Payment, Settlement, Alternate Investments Infotainment Systems, Connected Cars,  Infotainment Apps and Background Verification.
-
-### Certifications
-•	Red Hat Certified Technician in Red Hat Enterprise Linux 5 with score of 85.2 \
-•	Red Hat Certified Engineer in Red Hat Enterprise Linux 5 with score of 93.8 \
-	Certification number: 805010795551882 \
-•	NCFM Financial Markets: A Beginner’s Module with score of 93% \
-•	NCFM Equity Derivative: A Beginner’s Module with score of 69% \
-•	Docker Certified Associate (DCA)
-
-
-
-### Contact me
-
-[er.utsavgarg@gmail.com](er.utsavgarg@gmail.com)
-
-[Linkedin](https://www.linkedin.com/in/itsutsavgarg/)
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
