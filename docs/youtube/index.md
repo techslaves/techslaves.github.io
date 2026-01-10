@@ -15,4 +15,3 @@ Select a playlist from the menu to see detailed episode guides.
 
 *   [Helm Charts Series](./helm-series.md)
 *   [GitHub Actions Security](./github-actions-security.md)
-*   [Kubernetes Security](./kubernetes-security.md)

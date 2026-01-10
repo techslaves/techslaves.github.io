@@ -143,7 +143,7 @@ const config = {
             items: [
               {
                 label: 'LinkedIn',
-                href: 'https://www.linkedin.com/in/utsav-garg-2693242b/',
+                href: 'https://www.linkedin.com/in/itsutsavgarg',
               },
               {
                 label: 'Twitter',

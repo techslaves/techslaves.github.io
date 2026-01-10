@@ -38,7 +38,7 @@ const FeatureList = [
       <>
         Let's connect! I share daily updates and insights on LinkedIn.
         <br/><br/>
-        <Link className="button button--info" to="https://linkedin.com/in/utsavgarg">
+        <Link className="button button--info" to="https://www.linkedin.com/in/itsutsavgarg">
           Connect on LinkedIn 🤝
         </Link>
       </>
