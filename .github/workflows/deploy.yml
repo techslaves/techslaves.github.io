@@ -1,0 +1,48 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+    # Reviewgh-pages branch is usually used for deployment, 
+    # but since this is a user site (username.github.io), 
+    # GitHub expects the built content on the 'master' branch.
+    # HOWEVER, Docusaurus recommends keeping source code in a separate branch (e.g., 'main' or 'source')
+    # and deploying the build to 'gh-pages' (or 'master').
+    
+    # STRATEGY:
+    # 1. We assume your source code is now on 'master' (or you will rename it to 'main').
+    # 2. We will deploy the built site to the 'gh-pages' branch.
+    # 3. You must change your GitHub Pages settings to serve from 'gh-pages'.
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Website
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          # If this is a user site (techslaves.github.io), GitHub Pages usually forces 'master' branch.
+          # If so, you should keep source in 'source' branch and deploy to 'master'.
+          # For now, let's deploy to 'gh-pages' and you can switch settings in GitHub.
+          publish_branch: gh-pages
