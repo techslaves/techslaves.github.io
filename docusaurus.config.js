@@ -82,6 +82,14 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      announcementBar: {
+        id: 'subscribe_youtube',
+        content:
+          '<span>Check out my YouTube channel! </span><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@techhustlewithUG" style="display: inline-block; background-color: #FF0000; color: #ffffff; padding: 4px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; margin-left: 5px;">Subscribe 📺</a>',
+        backgroundColor: '#fafbfc',
+        textColor: '#091E42',
+        isCloseable: true,
+      },
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: false,
