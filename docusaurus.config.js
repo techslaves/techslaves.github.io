@@ -148,6 +148,9 @@ const config = {
               {
                 label: 'Twitter',
                 href: 'https://twitter.com/itsutsavgarg',
+              },{
+                 label: 'YouTube',
+                 href: 'https://www.youtube.com/@techhustlewithUG',
               },
             ],
           },
@@ -160,7 +163,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/techslaves/techslaves.github.io',
+                href: 'https://github.com/techslaves/',
               },
             ],
           },

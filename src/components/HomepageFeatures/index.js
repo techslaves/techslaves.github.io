@@ -10,7 +10,7 @@ const FeatureList = [
     image: require('@site/static/img/youtube-logo.png').default, 
     description: (
       <>
-        Check out <b>Tech Hustle with UG</b> for in-depth tutorials on DevOps, Cloud, and Kubernetes.
+        Check out <b>TechHustlewithUG</b> for in-depth tutorials on DevOps, Cloud, and Kubernetes.
         <br/><br/>
         <Link className="button button--primary" to="https://www.youtube.com/@techhustlewithUG">
           Watch Now 📺
@@ -23,7 +23,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        I am a DevOps Engineer passionate about Cloud Native technologies, Automation, and Security.
+        I am a DevOps/Cloud/DevSecOps Architect passionate about Cloud Native technologies, compliance, and Security.
         <br/><br/>
         <Link className="button button--secondary" to="/docs/about">
           Read More 🚀

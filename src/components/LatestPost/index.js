@@ -7,14 +7,14 @@ const RecentContent = [
   {
     type: 'YouTube Series',
     title: 'Helm Series',
-    date: '2023-10-01', // Approximate date, update if needed
+    date: '2025-10-01', // Approximate date, update if needed
     description: 'Master Helm charts with this comprehensive video series.',
     link: '/docs/youtube/helm-series',
   },
   {
     type: 'YouTube Series',
     title: 'GitHub Actions Security',
-    date: '2023-09-15', // Approximate date, update if needed
+    date: '2026-01-10', // Approximate date, update if needed
     description: 'Learn how to secure your CI/CD pipelines with GitHub Actions.',
     link: '/docs/youtube/github-actions-security',
   },

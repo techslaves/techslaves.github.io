@@ -1,5 +1,5 @@
 ---
-title: YouTube Channel
+title: YouTube Playlist
 sidebar_position: 1
 ---
 
