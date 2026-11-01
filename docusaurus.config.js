@@ -1,47 +1,42 @@
 // @ts-check
-// `@type` JSDoc annotations allow editor autocompletion and type checking
-// (when paired with `@ts-check`).
-// There are various equivalent ways to declare your Docusaurus config.
-// See: https://docusaurus.io/docs/api/docusaurus-config
-
 import {themes as prismThemes} from 'prism-react-renderer';
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Utsav Garg',
-  tagline: 'Keep EXPLORING Keep LEARNING',
+  tagline: 'Cloud & AI Security Architect | Staff DevSecOps Engineer',
   favicon: 'img/favicon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
   // Set the production url of your site here
   url: 'https://techslaves.github.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'techslaves', // Usually your GitHub org/user name.
-  projectName: 'techslaves.github.io', // Usually your repo name.
+  // GitHub pages deployment config
+  organizationName: 'techslaves',
+  projectName: 'techslaves.github.io',
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
-  onBrokenLinks: 'warn', // Changed to warn to avoid build failures during migration
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'warn',
+  onBrokenAnchors: 'ignore',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  stylesheets: [
+    'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap',
+  ],
 
   presets: [
     [
@@ -50,10 +45,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/techslaves/techslaves.github.io/tree/master/website/',
+          editUrl: 'https://github.com/techslaves/techslaves.github.io/tree/master/',
         },
         blog: {
           showReadingTime: true,
@@ -61,20 +53,16 @@ const config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/techslaves/techslaves.github.io/tree/master/website/',
-          // Useful options to enforce blogging best practices
+          editUrl: 'https://github.com/techslaves/techslaves.github.io/tree/master/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+          onUntruncatedBlogPosts: 'ignore',
         },
         theme: {
           customCss: './src/css/custom.css',
         },
         gtag: {
-          trackingID: 'G-98116Q442C', // Replace with your Google Analytics Tracking ID
+          trackingID: 'G-98116Q442C',
           anonymizeIP: true,
         },
       }),
@@ -84,14 +72,13 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       announcementBar: {
-        id: 'subscribe_youtube',
+        id: 'subscribe_youtube_hub',
         content:
-          '<span>Check out my YouTube channel! </span><a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@techhustlewithUG" style="display: inline-block; background-color: #FF0000; color: #ffffff; padding: 4px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; margin-left: 5px;">Subscribe 📺</a>',
-        backgroundColor: '#fafbfc',
-        textColor: '#091E42',
+          '<span>📺 Check out <b>TechHustlewithUG</b> for deep-dive tutorials on Helm, Kubernetes &amp; DevSecOps!</span> <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@techhustlewithUG" style="display: inline-block; background-color: #dc2626; color: #ffffff; padding: 3px 10px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-left: 8px; font-size: 12px;">Subscribe 📺</a>',
+        backgroundColor: '#0f172a',
+        textColor: '#f8fafc',
         isCloseable: true,
       },
       colorMode: {
@@ -100,31 +87,54 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'TechHustlewithUG',
+        title: 'Utsav Garg',
         logo: {
-          alt: 'TechHustlewithUG Logo',
+          alt: 'Utsav Garg Logo',
           src: 'img/logo.svg',
         },
         items: [
           {
+            href: 'https://techslaves.github.io/security-hub/',
+            label: '🛡️ Security Hub',
+            position: 'left',
+          },
+          {
+            to: '/#experience',
+            label: 'Experience & Skills',
+            position: 'left',
+          },
+          {
+            to: '/#projects',
+            label: 'Projects',
+            position: 'left',
+          },
+          {
             to: '/docs/youtube',
-            label: 'YouTube',
+            label: 'YouTube Series',
+            position: 'left',
+          },
+          {
+            to: '/docs/certification',
+            label: 'Certifications',
             position: 'left',
           },
           {
             to: '/docs/about',
-            label: 'About Me',
+            label: 'About',
             position: 'left',
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            to: '/blog',
+            label: 'Blog',
             position: 'left',
-            label: 'Docs',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/techslaves/techslaves.github.io',
+            href: 'https://www.linkedin.com/in/itsutsavgarg',
+            label: 'LinkedIn',
+            position: 'right',
+          },
+          {
+            href: 'https://github.com/techslaves/',
             label: 'GitHub',
             position: 'right',
           },
@@ -134,53 +144,74 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Featured Platform',
             items: [
               {
-                label: 'About',
-                to: '/docs/about',
+                label: 'Security Hub (OWASP LLM & NIS 2)',
+                href: 'https://techslaves.github.io/security-hub/',
               },
               {
-                label: 'Certifications',
+                label: 'PostgreSQL MCP Server',
+                href: 'https://github.com/techslaves/postgresql-mcp-server',
+              },
+              {
+                label: 'GitHub Actions Security Series',
+                href: 'https://github.com/techslaves/GitHub-Actions-Security-Series',
+              },
+              {
+                label: 'Helm Charts Masterclass',
+                href: 'https://github.com/techslaves/helm-charts-series',
+              },
+            ],
+          },
+          {
+            title: 'Knowledge & Series',
+            items: [
+              {
+                label: 'Helm Charts Series',
+                to: '/docs/youtube/helm-series',
+              },
+              {
+                label: 'GitHub Actions Security',
+                to: '/docs/youtube/github-actions-security',
+              },
+              {
+                label: 'Docker Certified Associate (DCA)',
                 to: '/docs/certification',
               },
               {
-                label: 'YouTube Series',
-                to: '/docs/youtube',
+                label: 'Technical Blog',
+                to: '/blog',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Connect & Community',
             items: [
               {
-                label: 'LinkedIn',
+                label: 'LinkedIn (itsutsavgarg)',
                 href: 'https://www.linkedin.com/in/itsutsavgarg',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/itsutsavgarg',
-              },{
-                 label: 'YouTube',
-                 href: 'https://www.youtube.com/@techhustlewithUG',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
+                label: 'YouTube (@techhustlewithUG)',
+                href: 'https://www.youtube.com/@techhustlewithUG',
               },
               {
-                label: 'GitHub',
+                label: 'GitHub (@techslaves)',
                 href: 'https://github.com/techslaves/',
+              },
+              {
+                label: 'Twitter / X (@itsutsavgarg)',
+                href: 'https://twitter.com/itsutsavgarg',
+              },
+              {
+                label: 'Email (er.utsavgarg@gmail.com)',
+                href: 'mailto:er.utsavgarg@gmail.com',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} TechHustlewithUG. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Utsav Garg. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

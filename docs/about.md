@@ -1,21 +1,64 @@
 ---
-layout: page
-title: About
-permalink: /about/
+title: About Utsav Garg
+sidebar_label: About Me
+sidebar_position: 1
 ---
 
-# 💫 About Me:
-🔭 Cloud Engineering and Security Professional with 14+ years of experience in Software Development, Cloud Security, Compliance, DevSecOps, specializing in scalable, secure, and highly available cloud-native architectures. Proven track record in Kubernetes, AWS, GitOps, Infrastructure as Code (IaC), cost optimization, and regulatory compliance (FedRAMP, NIS2, NIST).<br/><br/>🤝 Expertise & Technical Skills<br/>> Cloud-Native & DevOps: Kubernetes, Helm, GitOps (ArgoCD, FluxCD), CI/CD (Jenkins, GitHub Actions, Bitbucket Pipelines), Infrastructure as Code (Terraform, Terragrunt)<br/>> Security & Compliance: FedRAMP, NIS2, NIST, SOC 2, SOX, AWS Security Hub, AWS Config, OPA Gatekeeper, RBAC, Network Policies, Secrets Management (External Secrets)<br/>> AWS & Cloud Infrastructure: EKS, MSK, EC2, RDS, S3, VPC, ECR, DynamoDB, CloudFront, Route53, ACM, KMS, IAM, System Manager<br/>> Microservices & Containerization: Docker, Harbor, Nexus, PostgreSQL, Redis<br/>> Monitoring & Observability: Prometheus, Grafana, ELK Stack, AWS CloudWatch<br/>> Other Tools: MinIO, Kafka Connector, JIRA Administrator<br/><br/>⚡ Key Achievements & Experience<br/>✔ GitOps & Kubernetes Automation – Led GitOps-driven EKS cluster management with zero-downtime upgrades, auto-scaling, and security hardening.<br/>✔ Cloud Security & Compliance – Implemented FedRAMP-authorized cloud environments with NIS2 & NIST-compliant security controls, ensuring robust governance and risk management.<br/>✔ Cost Optimization & Performance Tuning – Optimized AWS costs by 30% through Spot Instances, Savings Plans, right-sizing, and storage lifecycle automation.<br/>✔ Microservices Transformation – Led monolithic to microservices migration, improving system agility, deployment speed, and fault tolerance.<br/>✔ Kubernetes Security & Auditing – Enforced RBAC, pod security policies, and vulnerability scanning for container security, ensuring compliance with regulatory frameworks.<br/>✔ Enterprise Software Development – Extensive experience in Java/JEE, Spring Boot, Hibernate, building mission-critical applications for banking, finance, and payment reconciliation systems.<br/><br/>Passionate about cloud security, automation, and compliance-driven cloud solutions. Always eager to explore emerging DevSecOps technologies to drive innovation and operational excellence.
+# 💫 About Utsav Garg
 
+**Lead Cloud & AI Security Architect | Staff DevSecOps & Platform Engineer**  
+📍 Global Enterprise Delivery • 14+ Years of Professional Engineering Experience  
+🔗 **[Connect on LinkedIn](https://www.linkedin.com/in/itsutsavgarg)** • 📺 **[TechHustlewithUG on YouTube](https://www.youtube.com/@techhustlewithUG)** • 💻 **[GitHub @techslaves](https://github.com/techslaves)**
 
-## 🌐 Socials:
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/itsutsavgarg) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/itsutsavgarg) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:er.utsavgarg@gmail.com)
+---
 
-# 💻 Tech Stack:
-![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=plastic&logo=redis&logoColor=white) ![AmazonDynamoDB](https://img.shields.io/badge/Amazon%20DynamoDB-4053D6?style=plastic&logo=Amazon%20DynamoDB&logoColor=white) ![CircleCI](https://img.shields.io/badge/circleci-%23161616.svg?style=plastic&logo=circleci&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=plastic&logo=githubactions&logoColor=white) ![AquaSec](https://img.shields.io/badge/aqua-%231904DA.svg?style=plastic&logo=aqua&logoColor=#0018A8) ![Jenkins](https://img.shields.io/badge/jenkins-%232C5263.svg?style=plastic&logo=jenkins&logoColor=white) ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=plastic&logo=nginx&logoColor=white) ![Apache Tomcat](https://img.shields.io/badge/apache%20tomcat-%23F8DC75.svg?style=plastic&logo=apache-tomcat&logoColor=black) ![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=plastic&logo=Apache%20Maven&logoColor=white) ![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=plastic&logo=apache&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=plastic&logo=amazon-aws&logoColor=white) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=plastic&logo=openjdk&logoColor=white) ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=plastic&logo=markdown&logoColor=white) ![Bash Script](https://img.shields.io/badge/bash_script-%23121011.svg?style=plastic&logo=gnu-bash&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=plastic&logo=postgresql&logoColor=white) ![Realm](https://img.shields.io/badge/Realm-39477F?style=plastic&logo=realm&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=plastic&logo=mysql&logoColor=white) ![Jira](https://img.shields.io/badge/jira-%230A0FFF.svg?style=plastic&logo=jira&logoColor=white) ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=plastic&logo=kubernetes&logoColor=white) ![Grafana](https://img.shields.io/badge/grafana-%23F46800.svg?style=plastic&logo=grafana&logoColor=white) ![Confluence](https://img.shields.io/badge/confluence-%23172BF4.svg?style=plastic&logo=confluence&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=plastic&logo=docker&logoColor=white) ![ElasticSearch](https://img.shields.io/badge/-ElasticSearch-005571?style=plastic&logo=elasticsearch) ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=plastic&logo=terraform&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=plastic&logo=postman&logoColor=white)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=techslaves&theme=default&hide_border=false&include_all_commits=true&count_private=true)<br/>
-![](https://nirzak-streak-stats.vercel.app/?user=techslaves&theme=default&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=techslaves&theme=default&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
+## 🔭 Executive Profile
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+Cloud Engineering and Security Professional with **14+ years of experience** spanning Software Engineering, Cloud Security, Regulatory Compliance, and DevSecOps. Specializing in scalable, secure, and resilient cloud-native architectures, containerization, and artificial intelligence infrastructure.
+
+Proven track record leading Kubernetes infrastructure (EKS), automated GitOps deployments, Infrastructure as Code (Terraform), FinOps cost optimization, and rigorous regulatory authorizations (**FedRAMP, EU NIS 2, NIST SP 800-53, SOC 2, SOX**).
+
+---
+
+## 🤝 Core Domains of Expertise
+
+### 🤖 1. AI & LLM Security
+* **OWASP Top 10 for LLM Applications (2025 Edition)**: Prompt injection mitigation, sensitive data exposure defense, model supply chain safeguards, and unbounded consumption (Denial of Wallet) rate limiters.
+* **Model Context Protocol (MCP)**: Author of the hardened [PostgreSQL MCP Server](https://github.com/techslaves/postgresql-mcp-server), enforcing parameterized AST query validation and least-privilege tool execution.
+* **RAG & Vector Security**: Enforcing row-level security (RLS) on vector embeddings, input/output DLP sanitization, and semantic collision defense.
+
+### 🛡️ 2. Cloud Security & Regulatory Compliance
+* **Statutory Compliance**: FedRAMP Authorized environments, EU NIS 2 Directive (EU 2022/2555), Belgian CCB CyFun® 2025, and NIST SP 800-53.
+* **AWS Security Governance**: AWS Security Hub, AWS Config automated conformance packs, GuardDuty anomaly detection, KMS encryption, IAM least-privilege scoping, and CloudTrail tamper-proof audit trails.
+* **Kubernetes Hardening**: OPA Gatekeeper & Kyverno admission controllers, Pod Security Standards (Restricted), Calico/Cilium network micro-segmentation, and External Secrets Operator with HashiCorp Vault.
+
+### ☸️ 3. Cloud-Native, Kubernetes & DevSecOps
+* **Cluster Management**: Amazon EKS, multi-tenant cluster management, Karpenter/Cluster Autoscaler, and zero-downtime rolling upgrades.
+* **GitOps & Continuous Delivery**: ArgoCD and FluxCD declarative cluster synchronization.
+* **Hardened CI/CD**: Reusable GitHub Actions workflows, AWS OIDC token federation (zero static credentials), SLSA Level 3 provenance, and automated container scanning (Trivy, AquaSec).
+* **Infrastructure as Code (IaC)**: Terraform, Terragrunt, Helm charts, and Kustomize.
+
+### 🏢 4. Enterprise Software Engineering & FinOps
+* **14+ Years Enterprise Java/JEE**: Deep software engineering foundation in Java 21, Spring Boot, Spring Cloud, Hibernate, and distributed microservices.
+* **Resilient Distributed Systems**: Apache Kafka (Amazon MSK), PostgreSQL High Availability, Redis caching, and RabbitMQ.
+* **Cloud FinOps**: Engineered 30% documented AWS cost reductions through automated mixed spot instance fleets, Savings Plans, right-sizing analysis, and S3 lifecycle tiering.
+
+---
+
+## ⚡ Key Career Highlights & Impact
+
+* ✔ **GitOps & Kubernetes Automation** – Architected GitOps-driven EKS cluster lifecycle management with automated Canary rollouts and zero-downtime upgrades.
+* ✔ **FedRAMP & NIS 2 Cloud Authorization** – Led implementation of FedRAMP High/Moderate cloud baselines and NIS 2 compliant security controls with automated continuous monitoring (ConMon).
+* ✔ **FinOps Cloud Cost Optimization** – Achieved documented **30% reduction in annual AWS infrastructure spend** via spot orchestration, right-sizing, and storage tiering.
+* ✔ **Monolith to Microservices Transformation** – Spearheaded enterprise migration of legacy banking reconciliation systems into containerized microservices.
+* ✔ **Technical Educator & Community Creator** – Created [TechHustlewithUG](https://www.youtube.com/@techhustlewithUG), authoring deep-dive masterclasses on Helm Charts and GitHub Actions Security.
+
+---
+
+## 🌐 Connect & Community
+
+* **LinkedIn:** [linkedin.com/in/itsutsavgarg](https://www.linkedin.com/in/itsutsavgarg)
+* **YouTube:** [@techhustlewithUG](https://www.youtube.com/@techhustlewithUG)
+* **GitHub:** [github.com/techslaves](https://github.com/techslaves)
+* **X / Twitter:** [@itsutsavgarg](https://x.com/itsutsavgarg)
+* **Email:** [er.utsavgarg@gmail.com](mailto:er.utsavgarg@gmail.com)
