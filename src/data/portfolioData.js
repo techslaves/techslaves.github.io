@@ -5,11 +5,10 @@
 
 export const personalInfo = {
   name: 'Utsav Garg',
-  title: 'Lead Cloud & AI Security Architect | Staff DevSecOps Engineer',
-  yearsExperience: '14+',
+  title: 'Cloud, DevSecOps & Security Architect',
+  yearsExperience: '15+',
   tagline: 'Architecting Scalable Cloud-Native Infrastructure, Kubernetes Governance & DevSecOps Automation',
-  bio: 'Cloud Engineering and Security Professional with 14+ years of experience in Software Development, Cloud Security, Compliance, and DevSecOps. Specializing in highly available architectures, Amazon EKS, GitOps, Infrastructure as Code, FinOps cost optimization, and regulatory frameworks (FedRAMP, NIS 2, NIST SP 800-53).',
-  securityHubUrl: 'https://techslaves.github.io/security-hub/',
+  bio: 'Cloud Engineering, DevSecOps and Security Professional with 15+ years of experience in Software Development, Cloud Security, Compliance, and DevSecOps. Specializing in highly available architectures, Amazon EKS, GitOps, Infrastructure as Code, FinOps cost optimization, and regulatory frameworks (FedRAMP, NIS 2, NIST SP 800-53, RBI).',
   socials: {
     linkedin: 'https://www.linkedin.com/in/itsutsavgarg',
     youtube: 'https://www.youtube.com/@techhustlewithUG',
@@ -20,8 +19,7 @@ export const personalInfo = {
 };
 
 export const stats = [
-  { value: '14+', label: 'Years Experience', subtext: 'Enterprise Cloud & Software' },
-  { value: '30%', label: 'Cost Optimization', subtext: 'Documented AWS FinOps Savings' },
+  { value: '15+', label: 'Years Experience', subtext: 'Enterprise Cloud & Security' },
   { value: 'Zero-Trust', label: 'Kubernetes Hardening', subtext: 'EKS, OPA, Network Policies' },
   { value: 'FedRAMP & NIS 2', label: 'Compliance Governance', subtext: 'Statutory Security Baselines' }
 ];
@@ -44,12 +42,6 @@ export const expertiseAreas = [
     title: 'DevSecOps & CI/CD Pipelines',
     skills: ['GitHub Actions', 'Jenkins', 'OIDC Token Exchange', 'SLSA Provenance', 'Cosign', 'Trivy', 'AquaSec', 'Terraform', 'Terragrunt'],
     description: 'Eliminating static AWS secrets using OpenID Connect (OIDC), automating SAST/container security scanning, and establishing reusable hardened pipeline architectures.'
-  },
-  {
-    icon: '🏢',
-    title: 'Enterprise Software & Microservices',
-    skills: ['Java 21', 'Spring Boot', 'Hibernate', 'Apache Kafka (MSK)', 'PostgreSQL HA', 'Redis', 'Docker', 'Harbor', 'Microservices'],
-    description: '14+ years designing high-throughput distributed transaction systems, banking platforms, payment reconciliation engines, and leading monolith-to-microservice transitions.'
   }
 ];
 
@@ -62,22 +54,22 @@ export const keyAchievements = [
     title: 'Cloud Security & Compliance Governance',
     desc: 'Implemented FedRAMP-authorized cloud environments with NIS 2 & NIST-compliant security controls, ensuring audit readiness and risk management.'
   },
-  {
+/*  {
     title: 'Cost Optimization & FinOps (30% Savings)',
     desc: 'Optimized AWS cloud infrastructure spend by 30% through Spot Instances, Savings Plans, right-sizing analysis, and automated storage lifecycle tiering.'
-  },
-  {
+  },*/
+/*  {
     title: 'Monolith to Microservices Transition',
     desc: 'Spearheaded mission-critical migration from monolithic legacy systems to decoupled microservices, dramatically improving deployment velocity and fault tolerance.'
-  },
+  },*/
   {
     title: 'Kubernetes Security & Auditing',
     desc: 'Enforced RBAC, admission webhooks (OPA Gatekeeper), container vulnerability scanning, and default-deny network policies.'
   },
-  {
+/*  {
     title: 'Technical Educator & Creator',
     desc: 'Founded TechHustlewithUG on YouTube, delivering in-depth courses on Helm Charts, GitHub Actions Security, and Cloud-Native Engineering.'
-  }
+  }*/
 ];
 
 export const techStackCategories = [
@@ -105,16 +97,16 @@ export const techStackCategories = [
 
 export const portfolioProjects = [
   {
-    title: 'Security Hub: OWASP LLM & NIS 2',
-    category: 'AI Security & Compliance',
+    title: 'Security Hub: FedRAMP & NIS 2',
+    category: ' Security & Compliance',
     highlight: true,
-    tag: 'Flagship Platform',
+    //tag: 'Flagship Platform',
     desc: 'Dedicated dual-standard cybersecurity platform featuring the OWASP Top 10 for LLM Applications (2025 Edition) and the EU NIS 2 Directive with CCB CyFun® 2025 self-assessment.',
-    tech: ['OWASP LLM 2025', 'EU NIS 2', 'CyFun®', 'AI Security'],
+    tech: ['FedRAMP', 'EU NIS 2', 'CyFun®', 'AI Security'],
     github: 'https://github.com/techslaves/security-hub',
-    liveUrl: 'https://techslaves.github.io/security-hub/'
+    //liveUrl: 'https://techslaves.github.io/security-hub/'
   },
-  {
+/*  {
     title: 'PostgreSQL MCP Server',
     category: 'AI Infrastructure',
     highlight: false,
@@ -123,7 +115,7 @@ export const portfolioProjects = [
     tech: ['Model Context Protocol', 'PostgreSQL', 'Node.js', 'AI Agents'],
     github: 'https://github.com/techslaves/postgresql-mcp-server',
     liveUrl: null
-  },
+  },*/
   {
     title: 'GitHub Actions Security Series',
     category: 'DevSecOps',
@@ -144,7 +136,7 @@ export const portfolioProjects = [
     github: 'https://github.com/techslaves/helm-charts-series',
     liveUrl: '/docs/youtube/helm-series'
   },
-  {
+/*  {
     title: 'Kubernetes Network Policy Recipes',
     category: 'Kubernetes Security',
     highlight: false,
@@ -153,7 +145,7 @@ export const portfolioProjects = [
     tech: ['Calico', 'Cilium', 'Kubernetes', 'Network Policies'],
     github: 'https://github.com/techslaves/kubernetes-network-policy-recipes',
     liveUrl: null
-  },
+  },*/
   {
     title: 'AWS Serverless User Management',
     category: 'Cloud Engineering',

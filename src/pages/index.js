@@ -3,7 +3,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
 import PortfolioHero from '@site/src/components/PortfolioHero';
-import SecurityHubBanner from '@site/src/components/SecurityHubBanner';
 import ExperienceSkills from '@site/src/components/ExperienceSkills';
 import ProjectsSection from '@site/src/components/ProjectsSection';
 import YouTubeSection from '@site/src/components/YouTubeSection';
@@ -16,14 +15,11 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title} | Cloud & AI Security Architect`}
-      description="Personal portfolio of Utsav Garg: Lead Cloud & AI Security Architect, Staff DevSecOps Engineer with 14+ years experience in Kubernetes, Cloud Security, FedRAMP, NIS 2, and Enterprise Software."
+      description="Personal portfolio of Utsav Garg:  Cloud, DevSecOps & Security Architect, Staff DevSecOps Engineer with 54+ years experience in Kubernetes, Cloud Security, FedRAMP, NIS 2, and Enterprise Software."
     >
       <main>
         {/* Executive Portfolio Hero */}
         <PortfolioHero />
-
-        {/* Security Hub Spotlight Banner */}
-        <SecurityHubBanner />
 
         {/* 14+ Years Core Expertise, Achievements & Tech Stack */}
         <div id="experience" style={{ scrollMarginTop: '80px' }}>

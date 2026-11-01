@@ -38,25 +38,6 @@ export default function CertificationsShowcase() {
             </Link>
           </div>
 
-          {/* AWS & Cloud Architecture */}
-          <div className="glass-card" style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                <span className="badge-pill badge-amber">Amazon Web Services</span>
-                <span className="badge-pill badge-purple">Cloud Architect</span>
-              </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, margin: '0 0 0.5rem', color: 'var(--text-main)' }}>
-                AWS Solutions Architecture &amp; Security
-              </h3>
-              <p style={{ fontSize: '0.86rem', lineHeight: '1.6', color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
-                Extensive production expertise in AWS EKS, Security Hub, KMS, GuardDuty, Transit Gateways, FinOps, and GovCloud architectures.
-              </p>
-            </div>
-            <div style={{ padding: '0.5rem 0.85rem', background: 'rgba(245, 158, 11, 0.08)', borderRadius: '0.5rem', border: '1px solid rgba(245, 158, 11, 0.2)', fontSize: '0.78rem', color: '#d97706', fontWeight: 600 }}>
-              ✓ 14+ Years Enterprise Cloud Delivery
-            </div>
-          </div>
-
           {/* Compliance & Cybersecurity */}
           <div className="glass-card" style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>

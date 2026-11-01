@@ -13,7 +13,7 @@ export default function PortfolioHero() {
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.4rem 1.1rem', borderRadius: '9999px', background: 'rgba(2, 132, 199, 0.1)', border: '1px solid rgba(2, 132, 199, 0.25)', marginBottom: '1.5rem' }}>
           <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#0284c7', display: 'inline-block', boxShadow: '0 0 10px #0284c7' }} />
           <span style={{ fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.02em', color: 'var(--ifm-color-primary)' }}>
-            14+ Years Enterprise Engineering • Cloud Security &amp; DevSecOps Architect
+            15+ Years of experience in Cloud Security &amp; DevSecOps Architect
           </span>
         </div>
 
@@ -33,15 +33,6 @@ export default function PortfolioHero() {
 
         {/* Action Buttons */}
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem', marginBottom: '3.5rem' }}>
-          <a
-            href={personalInfo.securityHubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary-glow"
-          >
-            <span>Visit Security Hub</span>
-            <span>🛡️</span>
-          </a>
           <a
             href={personalInfo.socials.linkedin}
             target="_blank"

@@ -7,7 +7,7 @@ sidebar_position: 1
 # 💫 About Utsav Garg
 
 **Lead Cloud & AI Security Architect | Staff DevSecOps & Platform Engineer**  
-📍 Global Enterprise Delivery • 14+ Years of Professional Engineering Experience  
+📍 Global Enterprise Delivery • 15+ Years of Professional Engineering Experience  
 🔗 **[Connect on LinkedIn](https://www.linkedin.com/in/itsutsavgarg)** • 📺 **[TechHustlewithUG on YouTube](https://www.youtube.com/@techhustlewithUG)** • 💻 **[GitHub @techslaves](https://github.com/techslaves)**
 
 ---
