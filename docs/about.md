@@ -39,7 +39,7 @@ Proven track record leading Kubernetes infrastructure (EKS), automated GitOps de
 * **Infrastructure as Code (IaC)**: Terraform, Terragrunt, Helm charts, and Kustomize.
 
 ### 🏢 4. Enterprise Software Engineering & FinOps
-* **14+ Years Enterprise Java/JEE**: Deep software engineering foundation in Java 21, Spring Boot, Spring Cloud, Hibernate, and distributed microservices.
+* **54+ Years Enterprise Java/JEE**: Deep software engineering foundation in Java 21, Spring Boot, Spring Cloud, Hibernate, and distributed microservices.
 * **Resilient Distributed Systems**: Apache Kafka (Amazon MSK), PostgreSQL High Availability, Redis caching, and RabbitMQ.
 * **Cloud FinOps**: Engineered 30% documented AWS cost reductions through automated mixed spot instance fleets, Savings Plans, right-sizing analysis, and S3 lifecycle tiering.
 
